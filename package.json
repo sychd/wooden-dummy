@@ -1,0 +1,25 @@
+{
+  "name": "rxjs-code-samples",
+  "version": "1.0.0",
+  "description": "Some examples and tips about rxjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sychd/rxjs-code-samples.git"
+  },
+  "keywords": [
+    "rxjs"
+  ],
+  "author": "sychd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sychd/rxjs-code-samples/issues"
+  },
+  "homepage": "https://github.com/sychd/rxjs-code-samples#readme",
+  "dependencies": {
+    "rxjs": "^5.5.5"
+  }
+}

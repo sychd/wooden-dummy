@@ -1,7 +1,9 @@
+import * as Rx from "rxjs";
+
 var source = Rx.Observable.range(0, 3)
     .map(function (x) {
-        const ob = 'Ob' + x;
-        return Rx.Observable.range(x, 3).map(x => ob + ' ' + x);
+        const ob = `Ob${x}`;
+        return Rx.Observable.range(x, 3).map(x => `${ob} ${x}`);
     })
     .concatAll(); //same with mergeAll(), but concatAll() keeps timeline
 
