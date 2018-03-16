@@ -1,25 +1,26 @@
 {
-  "name": "rxjs-code-samples",
+  "name": "wooden-dummy",
   "version": "1.0.0",
-  "description": "Some examples and tips about rxjs",
+  "description": "Code snippets",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sychd/rxjs-code-samples.git"
+    "url": "git+https://github.com/sychd/wooden-dummy.git"
   },
   "keywords": [
-    "rxjs"
+    "snippets"
   ],
   "author": "sychd",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sychd/rxjs-code-samples/issues"
+    "url": "https://github.com/sychd/wooden-dummy/issues"
   },
-  "homepage": "https://github.com/sychd/rxjs-code-samples#readme",
+  "homepage": "https://github.com/sychd/wooden-dummy#readme",
   "dependencies": {
-    "rxjs": "^5.5.5"
+    "ramda": "^0.25.0",
+    "rxjs": "^5.5.7"
   }
 }
