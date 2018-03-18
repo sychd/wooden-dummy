@@ -38,27 +38,28 @@ Output will be:
  error handling + will keep our main subscription alive:
 
 ```javascript
-const badRequest = Rx.Observable.throw('Some expected error that should be handled');
- const continuousStream = Rx.Observable
- .interval(500)
- .take(5);
- const errorHandler = v => Rx.Observable.of('ERROR');
+    const badRequest = Rx.Observable.throw('Some expected error that should be handled');
+    const continuousStream = Rx.Observable
+    .interval(500)
+    .take(5);
+    const errorHandler = v => Rx.Observable.of('ERROR');
 
- continuousStream
- .switchMap (v => v !== 3 ? Rx.Observable.of(v) : badRequest.catch(errorHandler))
- .subscribe(
- v => console.log('I got: ' +  v),
- v => console.log('Oh no: ' +  v),
- v => console.log('Successfully completed'));
+    continuousStream
+    .switchMap (v => v !== 3 ? Rx.Observable.of(v) : badRequest.catch(errorHandler))
+    .subscribe(
+    v => console.log('I got: ' +  v),
+    v => console.log('Oh no: ' +  v),
+    v => console.log('Successfully completed'));
  ```
 Output will be:
 
 ```javascript
- I got: 0 I got: 1
- I got: 2
- I got: ERROR
- I got: 4
- Successfully completed
+    I got: 0 
+    I got: 1
+    I got: 2
+    I got: ERROR
+    I got: 4
+    Successfully completed
  ```
 
 Now you can do partition() on 'ERROR' and handle it as you want without death of continuous stream!
