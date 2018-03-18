@@ -3,9 +3,10 @@
 *tl;dr - functor is that you can map().*
 
 So, what is functor?  
-Functor = fmap(mapFn) + context.  
-fmap - function, that applies mapFn to context's value.  
-Context - 'surrounding object'. I.e. minimal context is object with 'value' property.  
+
+* Functor = fmap(mapFn) + context.  
+* fmap - function, that applies mapFn to context's value.  
+* Context - 'surrounding object'. I.e. minimal context is object with 'value' property.  
 Actually, Context is a Functor (sorry for confusing, but nothing can do).  
 __Functor is any data type if it "knows how to fmap()".__  
  ```javascript
@@ -45,6 +46,7 @@ const transformed = functor
 console.log(transformed); // Context { value: 'HI THERE!' }
 ```
  So, cool. But what's the deal? Where is the profit?  
+
  In 'Context' class there is no actual profit. The context can be anything (and useful).
  Actually, it goes to monads usage where context (=== specific monad) gives you different
  perks like null-proof code (Maybe/Either monads) and other stuff that should be covered further.
