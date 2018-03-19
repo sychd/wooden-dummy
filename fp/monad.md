@@ -1,6 +1,4 @@
 # Monad
-*ALERT: I'm not shure that it is 100% correct description :)*
-*tl;dr - Monad is functor on steroids (with extra features).*
 
 >A monad exists when you create a whole data type around this idea of lifting values
 >inside containers and defining the rules of containment.
