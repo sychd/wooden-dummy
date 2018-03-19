@@ -9,3 +9,4 @@ __RxJS__
 
 __FP__
 * [Functor](fp/functor.md)
+* [Monad](fp/monad.md)
