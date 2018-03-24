@@ -30,16 +30,16 @@ So, here is some kind of recepie:
   }
   ```
   3. Path aliases with 'module-alias' package
-    1. Install ```module-alias``` package
-    2. Add to your entry .ts file:
-    ```javascript
-        const aliases = {
-            'shared': `${__dirname}/shared`,
-            'modules': `${__dirname}/modules`
-        };
-        require('module-alias').addAliases(aliases); 
-        ...
-    ```
+      * Install ```module-alias``` package
+      * Add to your entry .ts file:
+      ```javascript
+          const aliases = {
+              'shared': `${__dirname}/shared`,
+              'modules': `${__dirname}/modules`
+          };
+          require('module-alias').addAliases(aliases); 
+          ...
+      ```
   Alternatively, you can do it in ```package.json``` - check docs if you are interested.
   Now relative paths from ```tsconfig.json``` will work well!
   4. Create ```nodemon.json``` and fill it with:
