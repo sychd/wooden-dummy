@@ -11,6 +11,6 @@ __FP__
 * [Functor](fp/functor.md)
 * [Monad](fp/monad.md)
 
-__Node.js and friends__
+__Serverside__
 
-* [Express + typescript + nodemon](node.js_and_friends/express-typescript-nodemon.md)
+* [Express + typescript + nodemon](serverside/express-typescript-nodemon.md)
