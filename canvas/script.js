@@ -1,11 +1,49 @@
 window.onload = main;
 const el = (selector, host = document) => host.querySelector(selector);
+
 function main() {
     canvasWithPaths();
     canvasWithGradientFill();
+    canvasWithArcTo();
 }
 
+function canvasWithArcTo() {
+    const ctx = prepareCanvas('canvasArcTo');
 
+    ctx.strokeStyle = 'gray';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(30, 20);
+    ctx.lineTo(40, 50);
+    ctx.lineTo(60, 30);
+    ctx.stroke();
+    ctx.strokeStyle = 'black';
+    ctx.fillStyle = 'orange';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(30, 20);
+    ctx.arcTo(40, 50, 60, 30, 5);
+    ctx.stroke();
+
+    const arc = {
+        x: 250,
+        y: 80,
+        r: 40,
+        startAngle: 0,
+        endAngle: 1.5 * Math.PI
+    };
+    
+    ctx.beginPath();
+    
+    ctx.arc(arc.x, arc.y, arc.r, arc.startAngle, arc.endAngle, true);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(arc.x - 5, arc.y + 5, arc.r, arc.startAngle, arc.endAngle);
+    ctx.fill();
+    ctx.stroke();
+}
 
 function canvasWithGradientFill() {
     const ctx = prepareCanvas('canvasGradient');
@@ -13,13 +51,24 @@ function canvasWithGradientFill() {
 }
 
 function drawRectsWithGradientFill(ctx) {
-    const arc = { x: 250, y: 80, r: 40, startAngle: 0, endAngle: 2 * Math.PI };
+    const arc = {
+        x: 250,
+        y: 80,
+        r: 40,
+        startAngle: 0,
+        endAngle: 2 * Math.PI
+    };
     const rect = {
         point: new Point(50, 50),
         size: new Size(50, 70)
     };
     const gradientShift = 100;
-    const gradientPoint = {x0: rect.point.x, y0: rect.point.y, x1: rect.point.x + gradientShift, y1: rect.point.y + gradientShift};
+    const gradientPoint = {
+        x0: rect.point.x,
+        y0: rect.point.y,
+        x1: rect.point.x + gradientShift,
+        y1: rect.point.y + gradientShift
+    };
     ctx.save();
 
     ctx.lineWidth = 12;
@@ -31,7 +80,7 @@ function drawRectsWithGradientFill(ctx) {
 
     ctx.restore();
     ctx.arc(arc.x, arc.y, arc.r, arc.startAngle, arc.endAngle);
-    const gradientRadial = ctx.createRadialGradient(arc.x, arc.y, 30, gradientPoint.x1, gradientPoint.y1, 120); //random
+    const gradientRadial = ctx.createRadialGradient(arc.x, arc.y, 40, arc.x, arc.y, 5); //random
     addColorStops(gradientRadial);
     ctx.fillStyle = gradientRadial;
     ctx.stroke();
@@ -90,9 +139,17 @@ function prepareCanvas(id) {
 
     return ctx;
 }
+
 function Point(x, y) {
-    return { x, y };
+    return {
+        x,
+        y
+    };
 }
+
 function Size(width, height) {
-    return { width, height };
+    return {
+        width,
+        height
+    };
 }
