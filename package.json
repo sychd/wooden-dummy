@@ -24,6 +24,8 @@
     "browser-sync": "^2.26.3"
   },
   "scripts": {
-    "canvas": "cd canvas && browser-sync start --server --files \"*.*\""
+    "canvas": "cd canvas && browser-sync start --server --files \"*.*\"",
+    "dnd": "cd drag-n-drop && browser-sync start --server --files \"*.*\""
+
   }
 }

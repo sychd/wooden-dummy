@@ -1,0 +1,46 @@
+:root {
+    --basket-color: brown;
+    --basket-size: 150px;
+    --ball-size: 100px;
+  }
+
+.drag-container {
+    margin-top: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.ball {
+    height: var(--ball-size);
+    width: var(--ball-size);
+    border-radius: 50px;
+    border: 1px solid gray;
+    background-color: pink; 
+    z-index: 1;
+    position: absolute;
+}
+
+.basket {
+    height: var(--basket-size);
+    width: var(--basket-size);
+    border-radius: 50px;
+    background-color: var(--basket-color);
+    background-image: url(https://ih0.redbubble.net/image.29161670.5435/flat,550x550,075,f.u4.jpg);
+
+    transition: all .2s ease-in-out; 
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font: bold 5em serif;
+    color: yellowgreen;
+}
+
+.transparent {
+    opacity: 0.5;
+}
+
+.grow {
+    transform: scale(1.1);
+}
