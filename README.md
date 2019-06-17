@@ -14,3 +14,6 @@ __FP__
 __Serverside__
 
 * [Express + typescript + nodemon](serverside/express-typescript-nodemon.md)
+
+__Angular__
+* [AoT cheatsheet](angular/aot-cheatsheet.md)
