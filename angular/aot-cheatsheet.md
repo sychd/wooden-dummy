@@ -78,6 +78,7 @@ Example (It makes smth like folding):
         export let someTemplate = '<h1>Greetings from Angular</h1>';
 * Reference to a non-exported class
 * Reference to a non-exported function. Metadata referenced a function that wasn't exported - **even in the same file**.
+        
         // ERROR
         function myStrategy() { ... }
 
@@ -146,3 +147,70 @@ Example (It makes smth like folding):
 * Symbol reference expected -  if you use an expression in the extends clause of a class.
 ### Phase 3
 Validates the binding expressions in templates. Enable this phase explicitly by adding the compiler option "fullTemplateTypeCheck" in the "angularCompilerOptions" of the project's tsconfig.json 
+
+* Type narrowing
+    The expression used in an ngIf directive is used to narrow type unions in the Angular template compiler, the same way the if expression does in TypeScript. For example, to avoid Object is possibly 'undefined' error in the template above, modify it to only emit the interpolation if the value of person is initialized  `template: '<span *ngIf="person"> {{person.addresss.street}} </span>'
+}`
+
+* Custom ngIf like directives
+
+    
+    Signal to the template compiler to treat them like *ngIf - `public static ngIfUseIfTypeGuard: void;`
+* Non-null type assertion operator
+      
+        <!--No color, no error -->
+        <p *ngIf="item">The item's color is: {{item!.color}}</p>
+
+    Unlike the safe navigation operator, the non-null assertion operator does not guard against null or undefined. Rather, it tells the TypeScript type checker to suspend strict null checks for a specific property expression.
+
+* Disabling type checking using $any()
+
+        template: '{{$any(person).addresss.street}}'
+
+## Configuration inheritance with extends
+Similar to TypeScript Compiler, Angular Compiler also supports extends in the tsconfig.json on angularCompilerOptions
+### Angular template compiler options
+    {
+        "compilerOptions": {
+            "experimentalDecorators": true,
+                    ...
+        },
+        "angularCompilerOptions": {
+            "fullTemplateTypeCheck": true,
+            "preserveWhitespaces": true,
+                    ...
+        }
+    }
+
+* enableResourceInlining 
+
+    replace the templateUrl and styleUrls property with inlined contents 
+* skipMetadataEmit 
+
+    not to produce .metadata.json files (false by default) This option should be set to true if you are using TypeScript's --outFile option, because the metadata files are not valid for this style of TypeScript output. It is not recommended to use --outFile with Angular. 
+* strictMetadataEmit
+* skipTemplateCodegen 
+
+    suppress emitting .ngfactory.js and .ngstyle.js files
+* strictInjectionParameters
+
+    When set to true, this options tells the compiler to report an error for a parameter supplied whose injection type cannot be determined. When this option is not provided or is false, constructor parameters of classes marked with @Injectable whose type cannot be resolved will produce a warning.
+
+* flatModuleOutFile
+
+    When set to true, this option tells the template compiler to generate a flat module index of the given file name and the corresponding flat module metadata. 
+
+* flatModuleId
+
+    This option specifies the preferred module id to use for importing a flat module. This is only meaningful when flatModuleOutFile is also supplied
+
+* generateCodeForLibraries
+* fullTemplateTypeCheck
+* annotateForClosureCompiler
+* annotationsAs
+* trace
+* enableLegacyTemplate
+* disableExpressionLowering
+* disableTypeScriptVersionCheck
+* preserveWhitespaces
+* allowEmptyCodegenFiles
