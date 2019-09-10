@@ -26,6 +26,5 @@
   "scripts": {
     "canvas": "cd canvas && browser-sync start --server --files \"*.*\"",
     "dnd": "cd drag-n-drop && browser-sync start --server --files \"*.*\""
-
   }
 }
