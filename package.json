@@ -21,7 +21,7 @@
     "rxjs": "^5.5.7"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.3"
+    "browser-sync": "^2.26.7"
   },
   "scripts": {
     "canvas": "cd canvas && browser-sync start --server --files \"*.*\"",

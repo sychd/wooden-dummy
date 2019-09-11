@@ -10,12 +10,12 @@ let ApplicativeArray = {
     apply: (arrA, arrB) => {
         return arrA
             .map(fnValueA => ApplicativeArray.fmap(fnValueA, arrB))
-            .reduce((acc, arr) => [...acc,...arr], []); // to flatten we reduce it
+            .reduce((acc, arr) => [...acc, ...arr], []); // to flatten we reduce it
     }
 };
 
-let arrayOne = ApplicativeArray.of(1,4);
-let arrayTwo = ApplicativeArray.of(3,4,5);
+let arrayOne = ApplicativeArray.of(1, 4);
+let arrayTwo = ApplicativeArray.of(3, 4, 5);
 
 let addTenArrayOne = ApplicativeArray.fmap(a => b => a + b + 10, arrayOne);
 let applyAddToArrayTwo = ApplicativeArray.apply(addTenArrayOne, arrayTwo);
