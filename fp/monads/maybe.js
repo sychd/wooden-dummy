@@ -30,17 +30,22 @@ let musicians = [
         instrument: "Guitar"
     }
 ];
-let getMusician = targetName =>
+let findMusicianByName = (musicians => targetName =>
     Maybe.of(
         musicians.find(({name}) => targetName === name)
-    );
-let pluckObjectProperty = (obj, prop) => Maybe.of(obj[prop]);
-let getInstrument = maybeMusician => pluckObjectProperty(maybeMusician, "instrument");
-
+    )
+)(musicians);
+let getInstrument = musician => Maybe.of(musician.instrument);
 
 let marko = Maybe.of("Marko");
 let adrian = Maybe.of("Adrian");
-let markosInstrument = marko.bind(getMusician).bind(getInstrument);
-let adriansInstrument = adrian.bind(getMusician).bind(getInstrument);
 
-console.log(markosInstrument.toString(), adriansInstrument.toString());
+let markosInstrument = marko
+    .bind(findMusicianByName)
+    .bind(getInstrument);
+console.log(markosInstrument.toString());
+
+let adriansInstrument = adrian
+    .bind(findMusicianByName)
+    .bind(getInstrument);// getInstrument won't be called - Nothing.bind does not call passed function at all
+console.log(adriansInstrument.toString());
