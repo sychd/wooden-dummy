@@ -3,3 +3,4 @@ const log = (s: unknown): IO<void> => () => console.log(s);
 log('Hello world!')();
 
 import("./monoids");
+import("./validate-password.test");
