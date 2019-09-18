@@ -1,0 +1,37 @@
+.page {
+    display: flex;
+    justify-content: space-around;
+}
+.container {
+    background-color: beige;
+    width: 40%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.log-container {
+    flex: 1 0 auto;
+    padding: 10px;
+}
+
+.circle {
+    border: 1px solid lightblue;
+    border-radius: 100px;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+
+.circle--red {
+    background-color: red;
+}
+
+.circle--purple {
+    background-color: purple;
+}
+
+
+.circle--aqua {
+    background-color: aqua;
+}
